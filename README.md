@@ -19,6 +19,8 @@ CMD ["https://github.com/desktop/dugite.git"]
 docker volume create my-volume
 docker run --mount source=my-volume,target=/data my-git-image
 
+docker pull konsmt/lesson3-doc1:v1
+
 2. Dockerfile2
 
 FROM nginx:alpine
@@ -40,4 +42,6 @@ ENTRYPOINT ["/bin/bash","-c","/data/runsh.sh"]
 який буде використовувати environment variables для створення тексту в index.html файлі.
 docker run -d -e NAME=James -e AGE=27 my-custom-nginx
 index.html: My name is James and I am 27 years old.
+
+docker pull konsmt/lesson3-doc:v2
 
