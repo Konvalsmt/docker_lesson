@@ -35,3 +35,9 @@ RUN chmod +x /data/runsh.sh
 RUN echo "echo 'My name is' "'$NAME'" ' and I am ' "'$AGE'" 'years old.'>> /usr/share/nginx/html/index.html ">> /data/runsh.sh
 RUN echo "nginx -g 'daemon off;' ">>/data/runsh.sh
 ENTRYPOINT ["/bin/bash","-c","/data/runsh.sh"]
+
+На основі nginx створeно Dockerfile2 для побудови image, 
+який буде використовувати environment variables для створення тексту в index.html файлі.
+docker run -d -e NAME=James -e AGE=27 my-custom-nginx
+index.html: My name is James and I am 27 years old.
+
