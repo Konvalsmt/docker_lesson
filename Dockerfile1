@@ -1,0 +1,11 @@
+FROM alpine:latest
+MAINTAINER S.Konoval <konsmt@gmail.com>
+RUN apk update \
+	&& apk add bash  git fortune 
+RUN cd //	
+RUN mkdir /data
+RUN chmod 7777 /data
+RUN cd /data
+WORKDIR /data
+ENTRYPOINT ["git", "clone"] 
+CMD ["https://github.com/desktop/dugite.git"]
